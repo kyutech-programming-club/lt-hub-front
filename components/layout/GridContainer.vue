@@ -14,8 +14,8 @@ import {
 
 type Device = {
   base: number;
-  tablet?: number;
-  pc?: number;
+  tablet: number;
+  pc: number;
 };
 
 export default defineComponent({
@@ -61,10 +61,10 @@ export default defineComponent({
 
       return {
         "--baseCol": `${baseCol.value}`,
-        "--tabCol": `${tabletCol.value}`,
+        "--tabletCol": `${tabletCol.value}`,
         "--pcCol": `${pcCol.value}`,
         "--baseGap": `${baseGap.value}px`,
-        "--tabGap": `${tabletGap.value}px`,
+        "--tabletGap": `${tabletGap.value}px`,
         "--pcGap": `${pcGap.value}px`,
       };
     });
