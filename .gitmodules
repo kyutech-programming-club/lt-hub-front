@@ -1,0 +1,3 @@
+[submodule "mock-server"]
+	path = mock-server
+	url = git@github.com:kyutech-programming-club/lt-hub-mock-server.git
