@@ -35,7 +35,7 @@ export default defineComponent({
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 44px 16px;
 
   @include mq(pc) {
     padding: var(--padding);
