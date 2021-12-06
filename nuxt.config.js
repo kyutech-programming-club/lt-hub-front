@@ -21,7 +21,7 @@ export default {
   css: ["ress/dist/ress.min.css"],
 
   styleResources: {
-    scss: ["~assets/styles/*.scss"],
+    scss: ["~assets/scss/*.scss"],
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
