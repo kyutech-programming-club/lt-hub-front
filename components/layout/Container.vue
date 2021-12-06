@@ -9,14 +9,14 @@ import { computed, defineComponent, PropType } from "@nuxtjs/composition-api";
 
 export default defineComponent({
   props: {
-    isSider: {
+    isSidebar: {
       type: Boolean as PropType<boolean>,
       default: true,
     },
   },
   setup(props) {
     const styles = computed(() => {
-      if (props.isSider) {
+      if (props.isSidebar) {
         return { "--padding": "52px 60px" };
       } else {
         return { "--padding:": "52px 120px" };
