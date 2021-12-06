@@ -34,6 +34,20 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     "@nuxt/typescript-build",
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: {
+          "Noto+Sans+JP": [400, 500, 700, 800],
+          "Noto+Serif+JP": [400, 500, 700, 800],
+          "Open+Sans": [400, 500, 700, 800],
+          Montserrat: [400, 500, 700, 800],
+        },
+        display: "block",
+        download: true,
+        inject: true,
+      },
+    ],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
