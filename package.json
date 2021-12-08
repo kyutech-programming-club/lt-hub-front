@@ -7,6 +7,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "server": "cd mock-server/ && docker compose up",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "lintfix": "eslint --ext .ts,.js,.vue --ignore-path .gitignore . --fix",
     "prepare": "chmod +x .githooks/pre-commit && git config --local core.hooksPath .githooks"
