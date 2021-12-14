@@ -41,7 +41,6 @@ export interface Talk {
   userId: string;
   userName: string;
   avatarUrl: string;
-  state: string;
 }
 
 export interface TalkDetail {
