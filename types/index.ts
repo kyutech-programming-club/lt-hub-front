@@ -66,3 +66,25 @@ export interface User {
 export interface Suggest {
   theme: string;
 }
+
+// response
+export interface EventsResponse {
+  events: Event[];
+  fullCount?: number;
+}
+
+export interface EventResponse {
+  event: EventDetail;
+  joined?: boolean;
+  state?: string;
+}
+
+export interface participantsResponse {
+  participants: Participant[];
+  sum: number;
+}
+
+export interface TalksResponse {
+  talks: Talk[];
+  fullCount: number;
+}
