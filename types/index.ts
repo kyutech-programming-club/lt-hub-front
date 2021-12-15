@@ -48,6 +48,7 @@ export interface TalkDetail {
   title: string;
   eventId: string;
   eventName: string;
+  eventState: string;
   state: string;
   userId: string;
   userName: string;
