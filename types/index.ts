@@ -32,7 +32,7 @@ export interface Participant {
   userId: string;
   userName: string;
   avatarUrl: string;
-  state: string;
+  participantState: string;
 }
 
 export interface Talk {
@@ -49,7 +49,7 @@ export interface TalkDetail {
   eventId: string;
   eventName: string;
   eventState: string;
-  state: string;
+  talkState: string;
   userId: string;
   userName: string;
   avatarUrl: string;
@@ -76,7 +76,7 @@ export interface GetEventsResponse {
 export interface GetEventResponse {
   event: EventDetail;
   joined?: boolean;
-  state?: string;
+  eventState?: string;
 }
 
 export interface CreateEventRequest {
@@ -85,7 +85,7 @@ export interface CreateEventRequest {
   startTime: string;
   endTime: string;
   location: string;
-  state: string;
+  eventState: string;
   hostId: string;
 }
 
@@ -96,7 +96,7 @@ export interface UpdateEventRequest {
   startTime: string;
   endTime: string;
   location: string;
-  state: string;
+  eventState: string;
 }
 
 export interface GetParticipantsResponse {
@@ -106,11 +106,11 @@ export interface GetParticipantsResponse {
 
 export interface CreateParticipantRequest {
   eventId: string;
-  state: string;
+  participantState: string;
 }
 
 export interface UpdateParticipantRequest {
-  state: string;
+  participantState: string;
 }
 
 export interface GetTalksResponse {
@@ -121,14 +121,14 @@ export interface GetTalksResponse {
 export interface CreateTalkRequest {
   eventId: string;
   title: string;
-  state: string;
+  talkState: string;
 }
 
 export interface UpdateTalkRequest {
   title: string;
   videoId: string;
   slideUrl: string;
-  state: string;
+  talkState: string;
 }
 
 export interface UpdateOrderRequest {
@@ -144,7 +144,7 @@ export interface CreateUserRequest {
 
 export interface UpdateUserRequest {
   userId: string;
-  userName: string;
+  name: string;
   githubId: string;
   twitterId: string;
 }
