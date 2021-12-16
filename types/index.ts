@@ -67,24 +67,84 @@ export interface Suggest {
   theme: string;
 }
 
-// response
-export interface EventsResponse {
+// api
+export interface GetEventsResponse {
   events: Event[];
   fullCount?: number;
 }
 
-export interface EventResponse {
+export interface GetEventResponse {
   event: EventDetail;
   joined?: boolean;
   state?: string;
 }
 
-export interface participantsResponse {
+export interface CreateEventRequest {
+  title: string;
+  description: string;
+  startTime: string;
+  endTime: string;
+  location: string;
+  state: string;
+  hostId: string;
+}
+
+export interface UpdateEventRequest {
+  eventId: string;
+  title: string;
+  description: string;
+  startTime: string;
+  endTime: string;
+  location: string;
+  state: string;
+}
+
+export interface GetParticipantsResponse {
   participants: Participant[];
   sum: number;
 }
 
-export interface TalksResponse {
+export interface CreateParticipantRequest {
+  eventId: string;
+  state: string;
+}
+
+export interface UpdateParticipantRequest {
+  state: string;
+}
+
+export interface GetTalksResponse {
   talks: Talk[];
   fullCount: number;
+}
+
+export interface CreateTalkRequest {
+  eventId: string;
+  title: string;
+  state: string;
+}
+
+export interface UpdateTalkRequest {
+  title: string;
+  videoId: string;
+  slideUrl: string;
+  state: string;
+}
+
+export interface UpdateOrderRequest {
+  eventId: string;
+  order: string[];
+}
+
+export interface CreateUserRequest {
+  name: string;
+  avatarUrl: string;
+  email: string;
+}
+
+export interface UpdateUserRequest {
+  userId: string;
+  userName: string;
+  githubId: string;
+  twitterId: string;
 }
