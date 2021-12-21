@@ -4,11 +4,11 @@ export interface LoginUser {
 }
 
 export interface Event {
-  eventId: string;
-  eventTitle: string;
+  id: string;
+  title: string;
   date: string;
   location: string;
-  eventState: "private" | "limited" | "public";
+  state: "private" | "limited" | "public";
   participants: number;
   hostId: string;
   hostName: string;
@@ -16,50 +16,50 @@ export interface Event {
 }
 
 export interface EventDetail {
-  eventId: string;
-  eventTitle: string;
-  eventDescription: string;
+  id: string;
+  title: string;
+  Description: string;
   startTime: string;
   endTime: string;
   location: string;
-  eventState: "private" | "limited" | "public";
+  state: "private" | "limited" | "public";
   hostId: string;
   hostName: string;
   avatarUrl: string;
 }
 
 export interface Participant {
-  participantId: string;
+  id: string;
   userId: string;
   userName: string;
   avatarUrl: string;
-  participantState: "valid" | "pending" | "banned";
+  state: "valid" | "pending" | "banned";
 }
 
 export interface Talk {
-  talkId: string;
-  talkTitle: string;
+  id: string;
+  title: string;
   userId: string;
   userName: string;
   avatarUrl: string;
 }
 
 export interface TalkDetail {
-  talkId: string;
-  talkTitle: string;
+  id: string;
+  title: string;
+  state: "private" | "limited" | "public";
   eventId: string;
   eventTitle: string;
   eventState: "private" | "limited" | "public";
-  talkState: "private" | "limited" | "public";
   userId: string;
   userName: string;
   avatarUrl: string;
 }
 
 export interface User {
-  userId: string;
+  id: string;
+  name: string;
   avatarUrl: string;
-  userName: string;
   githubId: string;
   twitterId: string;
 }
@@ -86,18 +86,18 @@ export interface CreateEventRequest {
   startTime: string;
   endTime: string;
   location: string;
-  eventState: "private" | "limited" | "public";
+  state: "private" | "limited" | "public";
   hostId: string;
 }
 
 export interface UpdateEventRequest {
-  eventId: string;
+  id: string;
   title: string;
   description: string;
   startTime: string;
   endTime: string;
   location: string;
-  eventState: "private" | "limited" | "public";
+  state: "private" | "limited" | "public";
 }
 
 export interface GetParticipantsResponse {
@@ -107,11 +107,11 @@ export interface GetParticipantsResponse {
 
 export interface CreateParticipantRequest {
   eventId: string;
-  participantState: "valid" | "pending";
+  state: "valid" | "pending";
 }
 
 export interface UpdateParticipantRequest {
-  participantState: "valid" | "pending" | "banned";
+  state: "valid" | "pending" | "banned";
 }
 
 export interface GetTalksResponse {
@@ -120,20 +120,20 @@ export interface GetTalksResponse {
 }
 
 export interface CreateTalkRequest {
-  eventId: string;
   title: string;
-  talkState: "private" | "limited" | "public";
+  state: "private" | "limited" | "public";
+  eventId: string;
 }
 
 export interface UpdateTalkRequest {
   title: string;
   videoId: string;
   slideUrl: string;
-  talkState: "private" | "limited" | "public";
+  state: "private" | "limited" | "public";
 }
 
 export interface UpdateOrderRequest {
-  eventId: string;
+  id: string;
   order: string[];
 }
 
@@ -144,7 +144,7 @@ export interface CreateUserRequest {
 }
 
 export interface UpdateUserRequest {
-  userId: string;
+  id: string;
   name: string;
   githubId: string;
   twitterId: string;
