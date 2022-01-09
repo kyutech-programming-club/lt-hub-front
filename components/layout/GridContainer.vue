@@ -13,7 +13,7 @@ import {
 } from "@nuxtjs/composition-api";
 
 type Device = {
-  base: number;
+  sp: number;
   tablet: number;
   pc: number;
 };
@@ -21,49 +21,49 @@ type Device = {
 export default defineComponent({
   props: {
     cols: {
-      type: Number as PropType<number> | Object as PropType<Device>,
+      type: [Number, Object] as PropType<number | Device>,
       default: 1,
     },
     gap: {
-      type: Number as PropType<number> | Object as PropType<Device>,
+      type: [Number, Object] as PropType<number | Device>,
       default: 0,
     },
   },
   setup(props) {
-    const baseCol = ref<number>();
+    const spCol = ref<number>();
     const tabletCol = ref<number>();
     const pcCol = ref<number>();
 
-    const baseGap = ref<number>();
+    const spGap = ref<number>();
     const tabletGap = ref<number>();
     const pcGap = ref<number>();
 
     const styles = computed(() => {
       if (typeof props.cols === "number") {
-        baseCol.value = props.cols;
+        spCol.value = props.cols;
         tabletCol.value = props.cols;
         pcCol.value = props.cols;
       } else {
-        baseCol.value = props.cols.base;
+        spCol.value = props.cols.sp;
         tabletCol.value = props.cols.tablet;
         pcCol.value = props.cols.pc;
       }
 
       if (typeof props.gap === "number") {
-        baseGap.value = props.gap;
+        spGap.value = props.gap;
         tabletGap.value = props.gap;
         pcGap.value = props.gap;
       } else {
-        baseGap.value = props.gap.base;
+        spGap.value = props.gap.sp;
         tabletGap.value = props.gap.tablet;
         pcGap.value = props.gap.pc;
       }
 
       return {
-        "--baseCol": `${baseCol.value}`,
+        "--baseCol": `${spCol.value}`,
         "--tabletCol": `${tabletCol.value}`,
         "--pcCol": `${pcCol.value}`,
-        "--baseGap": `${baseGap.value}px`,
+        "--baseGap": `${spGap.value}px`,
         "--tabletGap": `${tabletGap.value}px`,
         "--pcGap": `${pcGap.value}px`,
       };
@@ -79,9 +79,9 @@ export default defineComponent({
 <style lang="scss" scoped>
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(var(--baseCol), minmax(0, 1fr));
+  grid-template-columns: repeat(var(--spCol), minmax(0, 1fr));
   place-items: center;
-  gap: var(--baseGap);
+  gap: var(--spGap);
 
   @include mq() {
     grid-template-columns: repeat(var(--tabletCol), minmax(0, 1fr));
