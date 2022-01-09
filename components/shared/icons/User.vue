@@ -21,5 +21,6 @@ export default defineComponent({
   height: 100%;
   border: solid 2px $blue;
   border-radius: 50%;
+  object-fit: cover;
 }
 </style>
