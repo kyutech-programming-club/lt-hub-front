@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { LoginUser } from "~/types";
+import { CurrentUser } from "~/types";
 
 export class AuthApi {
   private apiUrl: string;
@@ -10,7 +10,7 @@ export class AuthApi {
   }
 
   async getLoginUser(token: string) {
-    const response: AxiosResponse<LoginUser> = await axios.get(
+    const response: AxiosResponse<CurrentUser> = await axios.get(
       `${this.apiUrl}/login`,
       { headers: { token } }
     );

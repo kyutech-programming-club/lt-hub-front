@@ -1,4 +1,4 @@
-export interface LoginUser {
+export interface CurrentUser {
   userId: string;
   avatarUrl: string;
 }
