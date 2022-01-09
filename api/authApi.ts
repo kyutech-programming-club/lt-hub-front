@@ -9,7 +9,7 @@ export class AuthApi {
     this.apiUrl = apiUrl;
   }
 
-  async getLoginUser(token: string) {
+  async getCurrentUser(token: string) {
     const response: AxiosResponse<CurrentUser> = await axios.get(
       `${this.apiUrl}/login`,
       { headers: { token } }
