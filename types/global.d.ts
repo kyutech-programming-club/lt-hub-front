@@ -1,3 +1,4 @@
+import { NuxtRuntimeConfig } from "@nuxt/types/config/runtime";
 import { AuthApi } from "~/api/authApi";
 
 declare module "@nuxt/types" {
@@ -9,3 +10,12 @@ declare module "@nuxt/types" {
     $authApi: AuthApi;
   }
 }
+
+/* eslint-disable */
+declare module "vuex/types/index" {
+  interface Store<S> {
+    readonly $authApi: AuthApi;
+    readonly $config: NuxtRuntimeConfig;
+  }
+}
+/* eslint-disable */
