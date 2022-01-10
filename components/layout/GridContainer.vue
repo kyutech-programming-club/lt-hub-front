@@ -60,10 +60,10 @@ export default defineComponent({
       }
 
       return {
-        "--baseCol": `${spCol.value}`,
+        "--spCol": `${spCol.value}`,
         "--tabletCol": `${tabletCol.value}`,
         "--pcCol": `${pcCol.value}`,
-        "--baseGap": `${spGap.value}px`,
+        "--spGap": `${spGap.value}px`,
         "--tabletGap": `${tabletGap.value}px`,
         "--pcGap": `${pcGap.value}px`,
       };
