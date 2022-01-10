@@ -18,11 +18,7 @@ type Device = {
 
 export default defineComponent({
   props: {
-    width: {
-      type: [String, Object] as PropType<string | Device>,
-      default: "100%",
-    },
-    height: {
+    size: {
       type: [String, Object] as PropType<string | Device>,
       default: "100%",
     },
@@ -32,53 +28,30 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const spWidth = ref<string>();
-    const tabletWidth = ref<string>();
-    const pcWidth = ref<string>();
-
-    const spHeight = ref<string>();
-    const tabletHeight = ref<string>();
-    const pcHeight = ref<string>();
+    const spSize = ref<string>();
+    const tabletSize = ref<string>();
+    const pcSize = ref<string>();
 
     const styles = computed(() => {
-      if (typeof props.width === "string") {
-        spWidth.value = props.width;
-        tabletWidth.value = props.width;
-        pcWidth.value = props.width;
+      if (typeof props.size === "string") {
+        spSize.value = props.size;
+        tabletSize.value = props.size;
+        pcSize.value = props.size;
       } else {
-        spWidth.value = props.width.sp;
-        pcWidth.value = props.width.pc;
+        spSize.value = props.size.sp;
+        pcSize.value = props.size.pc;
 
-        if (props.width.tablet === undefined) {
-          tabletWidth.value = props.width.pc;
+        if (props.size.tablet === undefined) {
+          tabletSize.value = props.size.pc;
         } else {
-          tabletWidth.value = props.width.tablet;
-        }
-      }
-
-      if (typeof props.height === "string") {
-        spHeight.value = props.height;
-        tabletHeight.value = props.height;
-        pcHeight.value = props.height;
-      } else {
-        spHeight.value = props.height.sp;
-        tabletHeight.value = props.height.tablet;
-        pcHeight.value = props.height.pc;
-
-        if (props.height.tablet === undefined) {
-          tabletHeight.value = props.height.pc;
-        } else {
-          tabletHeight.value = props.height.tablet;
+          tabletSize.value = props.size.tablet;
         }
       }
 
       return {
-        "--spWidth": `${spWidth.value}`,
-        "--tabletWidth": `${tabletWidth.value}`,
-        "--pcWidth": `${pcWidth.value}`,
-        "--spHeight": `${spHeight.value}`,
-        "--tabletHeight": `${tabletWidth.value}`,
-        "--pcHeight": `${pcHeight.value}`,
+        "--spSize": `${spSize.value}`,
+        "--tabletSize": `${tabletSize.value}`,
+        "--pcSize": `${pcSize.value}`,
       };
     });
 
@@ -89,20 +62,20 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .image {
-  width: var(--spWidth);
-  height: var(--spHeight);
+  width: var(--spSize);
+  height: var(--spSize);
   border: solid 2px $blue;
   border-radius: 50%;
   object-fit: cover;
 
   @include mq() {
-    width: var(--tabletWidth);
-    height: var(--tabletHeight);
+    width: var(--tabletSize);
+    height: var(--tabletSize);
   }
 
   @include mq(pc) {
-    width: var(--pcWidth);
-    height: var(--pcHeight);
+    width: var(--pcSize);
+    height: var(--pcSize);
   }
 }
 </style>
