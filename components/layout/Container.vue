@@ -37,7 +37,7 @@ export default defineComponent({
   margin: 0 auto;
   padding: 44px 16px;
 
-  @include mq(pc) {
+  @include mq() {
     padding: var(--padding);
   }
 }
