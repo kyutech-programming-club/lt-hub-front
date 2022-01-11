@@ -32,6 +32,7 @@ export default defineComponent({
   width: 100%;
   border-radius: 12px;
   background: $white;
+  box-shadow: 0 3px 6px $shadow;
 
   &__header {
     height: 36px;
