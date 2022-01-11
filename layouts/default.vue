@@ -2,7 +2,7 @@
   <Nuxt />
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 html {
   background: $black-lighten-4;
   color: $black;
