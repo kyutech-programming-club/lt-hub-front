@@ -1,7 +1,7 @@
 <template>
-  <Overlay>
-    <div class="modal">
-      <CloseIcon class="modal__close" />
+  <Overlay @close="close">
+    <div class="modal" @click="stopEvent">
+      <CloseIcon class="modal__close" @close="close" />
       <slot />
     </div>
   </Overlay>
@@ -11,13 +11,29 @@
 import { defineComponent } from "@vue/composition-api";
 import Overlay from "~/components/shared/Overlay.vue";
 import CloseIcon from "~/components/shared/icons/Close.vue";
+import { useCreateTalkModalStore } from "~/store/createTalkModal";
+import { useEditTalkModalStore } from "~/store/editTalkModal";
 
 export default defineComponent({
   components: {
     Overlay,
     CloseIcon,
   },
-  setup() {},
+  setup() {
+    const createTalkModalStore = useCreateTalkModalStore();
+    const editTalkModalStore = useEditTalkModalStore();
+
+    const close = () => {
+      createTalkModalStore.changeState(false);
+      editTalkModalStore.changeState(false);
+    };
+
+    const stopEvent = (event: Event) => {
+      event.stopPropagation();
+    };
+
+    return { close, stopEvent };
+  },
 });
 </script>
 

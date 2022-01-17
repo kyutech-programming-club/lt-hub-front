@@ -1,8 +1,18 @@
 <template>
-  <div class="overlay">
+  <div class="overlay" @click="close">
     <slot />
   </div>
 </template>
+
+<script lang="ts">
+import { defineComponent, SetupContext } from "@nuxtjs/composition-api";
+
+export default defineComponent({
+  setup(_, { emit }: SetupContext) {
+    emit("clsoe");
+  },
+});
+</script>
 
 <style lang="scss" scoped>
 .overlay {
