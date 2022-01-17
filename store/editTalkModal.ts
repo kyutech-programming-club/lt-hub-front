@@ -4,7 +4,7 @@ interface State {
   state: boolean;
 }
 
-export const useCreateTalkModalStore = defineStore("createTalkModal", {
+export const useEditTalkModalStore = defineStore("createEditModal", {
   state: (): State => ({
     state: false,
   }),
