@@ -34,7 +34,6 @@ export default defineComponent({
   text-align: center;
   line-height: 1;
   font-family: $noto-sans;
-  // overflow: hidden;
 
   @include mq(pc) {
     width: 80px;
