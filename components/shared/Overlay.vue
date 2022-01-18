@@ -9,7 +9,11 @@ import { defineComponent, SetupContext } from "@nuxtjs/composition-api";
 
 export default defineComponent({
   setup(_, { emit }: SetupContext) {
-    emit("clsoe");
+    const close = () => {
+      emit("close");
+    };
+
+    return { close };
   },
 });
 </script>
