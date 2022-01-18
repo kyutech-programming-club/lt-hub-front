@@ -1,3 +1,4 @@
+import Vue from "vue";
 import { createPinia } from "pinia";
 
-app.use(createPinia());
+Vue.use(createPinia());
