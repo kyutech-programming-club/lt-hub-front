@@ -63,7 +63,7 @@ export default defineComponent({
 }
 
 .passed {
-  background: $black_lighten_1;
-  border: $black_lighten_2;
+  background: $black-lighten-1;
+  border: $black-lighten-2;
 }
 </style>
