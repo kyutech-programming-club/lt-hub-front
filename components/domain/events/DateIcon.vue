@@ -16,7 +16,7 @@ export default defineComponent({
   props: {
     isPassed: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      required: true,
     },
   },
   setup() {},
