@@ -26,7 +26,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: "~/plugins/vuex.js", ssr: false },
+    { src: "~/plugins/pinia.js" },
     { src: "~/plugins/api/authApi.inject.ts" },
   ],
 
@@ -38,6 +38,7 @@ export default {
     // https://go.nuxtjs.dev/typescript
     "@nuxtjs/composition-api/module",
     "@nuxt/typescript-build",
+    "@pinia/nuxt",
     [
       "@nuxtjs/google-fonts",
       {

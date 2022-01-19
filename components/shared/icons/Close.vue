@@ -4,6 +4,7 @@
     width="17.671"
     height="17.671"
     viewBox="0 0 17.671 17.671"
+    @click="close"
   >
     <g transform="translate(-691.672 -78.671)">
       <line
@@ -27,3 +28,17 @@
     </g>
   </svg>
 </template>
+
+<script lang="ts">
+import { defineComponent, SetupContext } from "@nuxtjs/composition-api";
+
+export default defineComponent({
+  setup(_, { emit }: SetupContext) {
+    const close = () => {
+      emit("close");
+    };
+
+    return { close };
+  },
+});
+</script>
