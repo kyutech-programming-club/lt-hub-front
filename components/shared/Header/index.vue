@@ -5,8 +5,11 @@
     class="header"
   >
     <nuxt-link to="/" class="header__title">LT-Hub</nuxt-link>
-    <UserIcon :avatarUrl="avatarUrl" :size="{ sp: '32px', pc: '40px' }" />
+    <div class="header__user" @click="changeState">
+      <UserIcon :avatarUrl="avatarUrl" />
+    </div>
     <Menu
+      v-show="isOpen"
       class="header__menu"
       @goToMyPage="goToMyPage"
       @goToManagePage="goToManagePage"
@@ -34,6 +37,11 @@ export default defineComponent({
     );
     const userId = ref<string>("1");
 
+    const isOpen = ref<boolean>(false);
+    const changeState = () => {
+      isOpen.value = !isOpen.value;
+    };
+
     const router = useRouter();
 
     const goToMyPage = () => {
@@ -50,6 +58,8 @@ export default defineComponent({
 
     return {
       avatarUrl,
+      isOpen,
+      changeState,
       goToMyPage,
       goToManagePage,
       logout,
@@ -80,6 +90,16 @@ export default defineComponent({
 
     @include mq() {
       font-size: 2.8rem;
+    }
+  }
+
+  &__user {
+    width: 32px;
+    height: 32px;
+
+    @include mq() {
+      width: 40px;
+      height: 40px;
     }
   }
 
