@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="navigation">
     <Button>マイページ</Button>
     <Button>イベント管理</Button>
     <Button>ログアウト</Button>
@@ -35,3 +35,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.navigation {
+  width: 184px;
+  border-radius: 12px;
+  padding: 8px 0;
+  background: $white;
+  box-shadow: 0 3px 6px $shadow;
+}
+</style>
