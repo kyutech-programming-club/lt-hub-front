@@ -1,18 +1,19 @@
 <template>
-  <nuxt-link :to="path" class="button">
+  <button class="button" @click="onClick">
     <slot />
-  </nuxt-link>
+  </button>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "@nuxtjs/composition-api";
+import { defineComponent, SetupContext } from "@nuxtjs/composition-api";
 
 export default defineComponent({
-  props: {
-    path: {
-      type: String as PropType<string>,
-      required: true,
-    },
+  setup(_, { emit }: SetupContext) {
+    const onClick = () => {
+      emit("onClick");
+    };
+
+    return { onClick };
   },
 });
 </script>
@@ -29,7 +30,6 @@ export default defineComponent({
   color: $black-lighten-1;
   font-size: 1.4rem;
   font-weight: bold;
-  text-decoration: none;
   transition: 0.3s;
 
   &:hover {
