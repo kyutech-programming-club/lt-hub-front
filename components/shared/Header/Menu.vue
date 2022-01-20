@@ -1,8 +1,8 @@
 <template>
   <nav class="navigation">
-    <Button>マイページ</Button>
-    <Button>イベント管理</Button>
-    <Button>ログアウト</Button>
+    <Button @onClick="goToMyPage">マイページ</Button>
+    <Button @onClick="goToManagePage">イベント管理</Button>
+    <Button @onClick="logout">ログアウト</Button>
   </nav>
 </template>
 
