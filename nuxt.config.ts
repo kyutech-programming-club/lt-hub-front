@@ -28,6 +28,7 @@ export default {
   plugins: [
     { src: "~/plugins/pinia.js" },
     { src: "~/plugins/api/authApi.inject.ts" },
+    { src: "~/plugins/api/suggestApi.inject.ts" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
