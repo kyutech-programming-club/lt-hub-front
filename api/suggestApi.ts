@@ -17,4 +17,12 @@ export class SuggestApi {
 
     return response.data;
   }
+
+  async createSuggest(token: string, suggest: string) {
+    await axios.post(
+      `${this.apiUrl}/suggests`,
+      { theme: suggest },
+      { header: { token } }
+    );
+  }
 }
