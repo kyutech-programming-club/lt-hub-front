@@ -12,7 +12,7 @@ export class SuggestApi {
   async getSuggests(token: string) {
     const response: AxiosResponse<Suggest[]> = await axios.get(
       `${this.apiUrl}/suggests`,
-      { header: { token } }
+      { headers: { token } }
     );
 
     return response.data;
@@ -22,7 +22,7 @@ export class SuggestApi {
     await axios.post(
       `${this.apiUrl}/suggests`,
       { theme: suggest },
-      { header: { token } }
+      { headers: { token } }
     );
   }
 }
