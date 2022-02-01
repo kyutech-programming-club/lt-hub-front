@@ -26,6 +26,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: "~/plugins/firebase.js" },
     { src: "~/plugins/pinia.js" },
     { src: "~/plugins/api/authApi.inject.ts" },
     { src: "~/plugins/api/suggestApi.inject.ts" },
