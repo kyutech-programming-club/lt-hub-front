@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+    <button @click="login">ahiahi</button>
     <Nuxt />
   </div>
 </template>
@@ -17,6 +18,11 @@ export default defineComponent({
   setup() {
     const authStore = useAuthStore();
     authStore.getAuthState();
+    const login = () => {
+      authStore.login();
+    };
+
+    return { login };
   },
 });
 </script>
