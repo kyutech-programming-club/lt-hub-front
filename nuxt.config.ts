@@ -17,6 +17,17 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
+  env: {
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY as string,
+    FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN as string,
+    FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID as string,
+    FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET as string,
+    FIREBASE_MESSSAGE_SENDER_ID: process.env
+      .FIREBASE_MESSSAGE_SENDER_ID as string,
+    FIREBASE_APP_ID: process.env.FIREBASE_APP_ID as string,
+    FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_I as string,
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["ress/dist/ress.min.css"],
 
@@ -26,7 +37,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: "~/plugins/firebase.js" },
+    { src: "~/plugins/firebase.ts" },
     { src: "~/plugins/pinia.js" },
     { src: "~/plugins/api/authApi.inject.ts" },
     { src: "~/plugins/api/suggestApi.inject.ts" },

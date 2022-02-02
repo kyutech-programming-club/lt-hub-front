@@ -1,6 +1,7 @@
 export interface CurrentUser {
-  userId: string;
-  avatarUrl: string;
+  token: string | null;
+  userId: string | null;
+  avatarUrl: string | null;
 }
 
 export interface Event {
