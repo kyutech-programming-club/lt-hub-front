@@ -1,13 +1,12 @@
 import { defineStore } from "pinia";
 import {
-  getAuth,
   GoogleAuthProvider,
+  onAuthStateChanged,
   signInWithPopup,
-  UserCredential,
 } from "firebase/auth";
+import { auth } from "~/plugins/firebase";
 import { CurrentUser } from "~/types";
 
-const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
 export const useAuthStore = defineStore("auth", {
@@ -24,13 +23,37 @@ export const useAuthStore = defineStore("auth", {
   actions: {
     async signIn() {
       try {
-        const res: UserCredential = await signInWithPopup(auth, provider);
-
-        console.log(res);
+        await signInWithPopup(auth, provider);
       } catch (err) {
-        console.log(err);
+        console.error(err);
         throw err;
       }
+    },
+    getAuthState() {
+      return new Promise(() => {
+        onAuthStateChanged(auth, async (user) => {
+          try {
+            const token = await user?.getIdToken();
+            console.log(token);
+            /*
+              if token === undifined
+                stateすべてにnull
+                redirect(/home)
+              else
+                "/login" にアクセス
+                if ユーザーあり
+                  stateにセット
+                else
+                  POST /users でユーザー作る
+                  デフォちをstateに追加
+                  redirect(/signup)
+            */
+          } catch (err) {
+            console.error(err);
+            throw err;
+          }
+        });
+      });
     },
   },
 });
