@@ -3,6 +3,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import { auth } from "~/plugins/firebase";
 import { CurrentUser } from "~/types";
@@ -21,9 +22,18 @@ export const useAuthStore = defineStore("auth", {
     },
   },
   actions: {
-    async signIn() {
+    async login() {
       try {
         await signInWithPopup(auth, provider);
+      } catch (err) {
+        console.error(err);
+        throw err;
+      }
+    },
+    async logout() {
+      try {
+        await signOut(auth);
+        this.$reset();
       } catch (err) {
         console.error(err);
         throw err;
