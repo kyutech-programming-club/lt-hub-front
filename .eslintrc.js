@@ -12,5 +12,6 @@ module.exports = {
     "vue/no-mutating-props": "off",
     "no-console": "off",
     "vue/no-v-html": "off",
+    "import/named": "off",
   },
 };

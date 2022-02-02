@@ -1,5 +1,10 @@
 import { defineStore } from "pinia";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  UserCredential,
+} from "firebase/auth";
 import { CurrentUser } from "~/types";
 
 const auth = getAuth();
@@ -19,7 +24,7 @@ export const useAuthStore = defineStore("auth", {
   actions: {
     async signIn() {
       try {
-        const res = await signInWithPopup(auth, provider);
+        const res: UserCredential = await signInWithPopup(auth, provider);
 
         console.log(res);
       } catch (err) {
