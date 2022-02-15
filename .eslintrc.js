@@ -10,7 +10,8 @@ module.exports = {
     "vue/multi-word-component-names": "off",
     "vue/attribute-hyphenation": "off",
     "vue/no-mutating-props": "off",
-    "no-console": "error",
+    "no-console": "off",
     "vue/no-v-html": "off",
+    "import/named": "off",
   },
 };

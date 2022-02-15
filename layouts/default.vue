@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+    <button @click="login">ahiahi</button>
     <Nuxt />
   </div>
 </template>
@@ -8,12 +9,21 @@
 <script lang="ts">
 import { defineComponent } from "@nuxtjs/composition-api";
 import Header from "~/components/shared/Header/index.vue";
+import { useAuthStore } from "~/store/auth";
 
 export default defineComponent({
   components: {
     Header,
   },
-  setup() {},
+  setup() {
+    const authStore = useAuthStore();
+    authStore.getAuthState();
+    const login = () => {
+      authStore.login();
+    };
+
+    return { login };
+  },
 });
 </script>
 

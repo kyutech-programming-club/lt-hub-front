@@ -23,6 +23,7 @@ import { defineComponent, ref, useRouter } from "@nuxtjs/composition-api";
 import FlexContainer from "~/components/layout/FlexContainer.vue";
 import UserIcon from "~/components/shared/icons/User.vue";
 import Menu from "~/components/shared/Header/Menu.vue";
+import { useAuthStore } from "~/store/auth";
 
 export default defineComponent({
   components: {
@@ -31,6 +32,7 @@ export default defineComponent({
     Menu,
   },
   setup() {
+    const authStore = useAuthStore();
     // 以下2つ本来はstoreで管理、出来次第変更
     const avatarUrl = ref<string>(
       "https://avatars.githubusercontent.com/u/50654077?v=4"
@@ -53,7 +55,7 @@ export default defineComponent({
     };
 
     const logout = () => {
-      // ログアウトの処理
+      authStore.logout();
     };
 
     return {
