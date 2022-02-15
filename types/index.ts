@@ -5,7 +5,7 @@ export interface CurrentUser {
 }
 
 export interface Event {
-  id: string;
+  eventId: string;
   title: string;
   date: string;
   location: string;
@@ -17,7 +17,7 @@ export interface Event {
 }
 
 export interface EventDetail {
-  id: string;
+  eventId: string;
   title: string;
   Description: string;
   startTime: string;
@@ -30,7 +30,7 @@ export interface EventDetail {
 }
 
 export interface Participant {
-  id: string;
+  participantId: string;
   userId: string;
   userName: string;
   avatarUrl: string;
@@ -38,7 +38,7 @@ export interface Participant {
 }
 
 export interface Talk {
-  id: string;
+  talkId: string;
   title: string;
   userId: string;
   userName: string;
@@ -46,7 +46,7 @@ export interface Talk {
 }
 
 export interface TalkDetail {
-  id: string;
+  talkId: string;
   title: string;
   state: "private" | "limited" | "public";
   eventId: string;
@@ -58,7 +58,7 @@ export interface TalkDetail {
 }
 
 export interface User {
-  id: string;
+  userId: string;
   name: string;
   avatarUrl: string;
   githubId: string;
@@ -81,6 +81,16 @@ export interface GetEventResponse {
   viewState: "valid" | "request" | "pending" | "banned";
 }
 
+export interface GetEventDetailResponse {
+  event: Event;
+  talks: Talk[];
+  talkCount: number;
+  participants: Participant[];
+  participantCount: number;
+  joined: boolean;
+  viewState: "browsable" | "request" | "pending" | "banned";
+}
+
 export interface CreateEventRequest {
   title: string;
   description: string;
@@ -92,7 +102,7 @@ export interface CreateEventRequest {
 }
 
 export interface UpdateEventRequest {
-  id: string;
+  eventId: string;
   title: string;
   description: string;
   startTime: string;
@@ -134,7 +144,7 @@ export interface UpdateTalkRequest {
 }
 
 export interface UpdateOrderRequest {
-  id: string;
+  eventId: string;
   order: string[];
 }
 
@@ -145,7 +155,7 @@ export interface CreateUserRequest {
 }
 
 export interface UpdateUserRequest {
-  id: string;
+  userId: string;
   name: string;
   githubId: string;
   twitterId: string;
